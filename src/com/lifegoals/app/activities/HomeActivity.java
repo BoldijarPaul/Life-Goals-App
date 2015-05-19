@@ -1,18 +1,20 @@
 package com.lifegoals.app.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.client.locator.context.AppContext;
+import com.lifegoals.app.client.management.AppContext;
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.LoginInfo;
 import com.lifegoals.app.entities.LoginResult;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
+import com.lifegoals.app.helper.GsonHelper;
 
 public class HomeActivity extends Activity {
 
@@ -77,6 +79,11 @@ public class HomeActivity extends Activity {
 				AppContext.getContext().setToken(value.getToken().getKey());
 				Toast.makeText(getApplicationContext(), "Login successful!",
 						Toast.LENGTH_SHORT).show();
+
+				Intent intent = new Intent(HomeActivity.this,
+						AddGoalActivity.class);
+				intent.putExtra("user", GsonHelper.toString(value.getUser()));
+				System.out.println(GsonHelper.toString(value.getUser()));
 
 			}
 		});
