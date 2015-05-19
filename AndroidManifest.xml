@@ -16,8 +16,13 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.lifegoals.app.activities.HomeActivity"
-            android:label="@string/app_name" >
+            android:name=".activities.HomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNoActionBar" >
+        </activity>
+        <activity
+            android:name=".AddGoalActivity"
+            android:label="@string/title_activity_add_goal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

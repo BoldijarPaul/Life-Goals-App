@@ -2,8 +2,6 @@ package com.lifegoals.app.client.examples;
 
 import java.util.List;
 
-
- 
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.LoginInfo;
 import com.lifegoals.app.entities.LoginResult;

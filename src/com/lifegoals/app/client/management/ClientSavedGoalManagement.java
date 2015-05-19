@@ -3,14 +3,7 @@ package com.lifegoals.app.client.management;
 import java.util.Arrays;
 import java.util.List;
 
-
-
-
-
- 
-
 import com.lifegoals.app.client.locator.context.AppContext;
-import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
 

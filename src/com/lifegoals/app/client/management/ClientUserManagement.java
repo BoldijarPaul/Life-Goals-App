@@ -3,12 +3,9 @@ package com.lifegoals.app.client.management;
 import java.util.Arrays;
 import java.util.List;
 
- 
-
 import com.lifegoals.app.client.locator.context.AppContext;
 import com.lifegoals.app.entities.LoginInfo;
 import com.lifegoals.app.entities.LoginResult;
-import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
 
 public class ClientUserManagement {

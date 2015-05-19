@@ -1,14 +1,6 @@
 package com.lifegoals.app.context;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.URL;
-
-import com.google.gson.Gson;
 
 public class Context {
 	/* this class will handle all requests and (de)serializing of the objects */

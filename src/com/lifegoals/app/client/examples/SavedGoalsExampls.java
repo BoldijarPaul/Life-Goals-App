@@ -2,7 +2,6 @@ package com.lifegoals.app.client.examples;
 
 import java.util.List;
 
- 
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
