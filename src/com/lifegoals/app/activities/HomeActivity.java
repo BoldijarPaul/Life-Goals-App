@@ -77,13 +77,12 @@ public class HomeActivity extends Activity {
 
 				/* successful login */
 				AppContext.getContext().setToken(value.getToken().getKey());
-				Toast.makeText(getApplicationContext(), "Login successful!",
-						Toast.LENGTH_SHORT).show();
 
+				/* start the next activity */
 				Intent intent = new Intent(HomeActivity.this,
 						AddGoalActivity.class);
 				intent.putExtra("user", GsonHelper.toString(value.getUser()));
-				System.out.println(GsonHelper.toString(value.getUser()));
+				startActivity(intent);
 
 			}
 		});
