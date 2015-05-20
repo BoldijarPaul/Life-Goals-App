@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.lifegoals.app.R;
 import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.SavedGoal;
+import com.lifegoals.app.helper.DrawableHelper;
 import com.lifegoals.app.ui.TextDrawable;
 
 public class SavedGoalAdapter extends RecyclerView.Adapter<SavedGoalViewHolder> {
@@ -35,7 +36,7 @@ public class SavedGoalAdapter extends RecyclerView.Adapter<SavedGoalViewHolder> 
 	public void onBindViewHolder(SavedGoalViewHolder arg0, int arg1) {
 		SavedGoal goal = goals.get(arg1);
 		arg0.textView.setText(goal.getGoal().getText());
-		arg0.icon.setBackgroundDrawable(TextDrawable.builder().buildRound(
+		arg0.icon.setBackgroundDrawable(DrawableHelper.createTextDrawable(
 				getIconText(goal), goal.getGoal().getColor()));
 	}
 

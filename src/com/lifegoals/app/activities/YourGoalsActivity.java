@@ -1,4 +1,4 @@
-package com.lifegoals.app;
+package com.lifegoals.app.activities;
 
 import java.util.List;
 
@@ -11,8 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.lifegoals.app.activities.AddGoalActivity;
-import com.lifegoals.app.activities.HomeActivity;
+import com.lifegoals.app.R;
+import com.lifegoals.app.R.id;
+import com.lifegoals.app.R.layout;
+import com.lifegoals.app.R.menu;
 import com.lifegoals.app.adapters.goals.SavedGoalAdapter;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.entities.SavedGoal;
@@ -21,7 +23,7 @@ import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
 
-public class YourGoalsActivity extends Activity {
+public class YourGoalsActivity extends AppActivity {
 
 	private RecyclerView mRecycler;
 	private User user;

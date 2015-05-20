@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.YourGoalsActivity;
 import com.lifegoals.app.client.management.ClientGoalManagement;
 import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.User;

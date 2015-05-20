@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.YourGoalsActivity;
 import com.lifegoals.app.client.management.AppContext;
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.LoginInfo;

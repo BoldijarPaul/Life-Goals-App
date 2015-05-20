@@ -30,7 +30,7 @@
             android:label="@string/title_activity_add_goal" >
         </activity>
         <activity
-            android:name=".YourGoalsActivity"
+            android:name="com.lifegoals.app.activities.YourGoalsActivity"
             android:label="@string/title_activity_your_goals" >
         </activity>
     </application>
