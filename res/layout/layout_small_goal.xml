@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/layout_small_goal_root"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/selector_goal"

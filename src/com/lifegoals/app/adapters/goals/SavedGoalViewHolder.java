@@ -10,11 +10,14 @@ public class SavedGoalViewHolder extends RecyclerView.ViewHolder {
 
 	public View icon;
 	public TextView textView;
+	public View root;
 
 	public SavedGoalViewHolder(View itemView) {
 		super(itemView);
 		icon = itemView.findViewById(R.id.layout_small_goal_icon);
-		textView = (TextView) itemView.findViewById(R.id.layout_small_goal_text);
+		textView = (TextView) itemView
+				.findViewById(R.id.layout_small_goal_text);
+		root = itemView.findViewById(R.id.layout_small_goal_root);
 	}
 
 }

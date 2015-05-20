@@ -30,8 +30,16 @@
             android:label="@string/title_activity_add_goal" >
         </activity>
         <activity
-            android:name="com.lifegoals.app.activities.YourGoalsActivity"
+            android:name=".activities.YourGoalsActivity"
             android:label="@string/title_activity_your_goals" >
+        </activity>
+        <activity
+            android:name=".YourGoalInfoActivity"
+            android:label="@string/title_activity_your_goal_info"
+            android:parentActivityName=".activities.AppActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lifegoals.app.activities.AppActivity" />
         </activity>
     </application>
 

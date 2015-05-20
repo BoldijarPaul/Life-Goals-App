@@ -2,7 +2,6 @@ package com.lifegoals.app.activities;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,10 +11,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.R.id;
-import com.lifegoals.app.R.layout;
-import com.lifegoals.app.R.menu;
+import com.lifegoals.app.YourGoalInfoActivity;
 import com.lifegoals.app.adapters.goals.SavedGoalAdapter;
+import com.lifegoals.app.adapters.goals.SavedGoalAdapterListener;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
@@ -23,7 +21,8 @@ import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
 
-public class YourGoalsActivity extends AppActivity {
+public class YourGoalsActivity extends AppActivity implements
+		SavedGoalAdapterListener {
 
 	private RecyclerView mRecycler;
 	private User user;
@@ -82,7 +81,8 @@ public class YourGoalsActivity extends AppActivity {
 	}
 
 	protected void gotSavedGoals(List<SavedGoal> value) {
-		mRecycler.setAdapter(new SavedGoalAdapter(value));
+		mRecycler.setAdapter(new SavedGoalAdapter(value)
+				.setOnSavedAdapterListener(this));
 	}
 
 	@Override
@@ -102,5 +102,12 @@ public class YourGoalsActivity extends AppActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onSavedGoalClicked(SavedGoal savedGoal) {
+		Intent intent = new Intent(this, YourGoalInfoActivity.class);
+		intent.putExtra("savedGoal", GsonHelper.toString(savedGoal));
+		startActivity(intent);
 	}
 }
