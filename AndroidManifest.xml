@@ -26,8 +26,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.lifegoals.app.activities.AddGoalActivity"
+            android:name=".activities.AddGoalActivity"
             android:label="@string/title_activity_add_goal" >
+        </activity>
+        <activity
+            android:name=".YourGoalsActivity"
+            android:label="@string/title_activity_your_goals" >
         </activity>
     </application>
 

@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
+import com.lifegoals.app.YourGoalsActivity;
 import com.lifegoals.app.client.management.AppContext;
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.LoginInfo;
@@ -80,7 +81,7 @@ public class HomeActivity extends Activity {
 
 				/* start the next activity */
 				Intent intent = new Intent(HomeActivity.this,
-						AddGoalActivity.class);
+						YourGoalsActivity.class);
 				intent.putExtra("user", GsonHelper.toString(value.getUser()));
 				startActivity(intent);
 
