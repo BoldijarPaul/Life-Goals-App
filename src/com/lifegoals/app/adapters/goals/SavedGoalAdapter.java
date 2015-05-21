@@ -34,7 +34,7 @@ public class SavedGoalAdapter extends RecyclerView.Adapter<SavedGoalViewHolder> 
 	}
 
 	private String getIconText(SavedGoal savedGoal) {
-		return savedGoal.isDone() ? "✔" : "";
+		return savedGoal.isDone() ? "✔" : "✖";
 	}
 
 	@Override

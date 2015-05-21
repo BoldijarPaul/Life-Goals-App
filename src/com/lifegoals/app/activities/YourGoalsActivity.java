@@ -2,6 +2,7 @@ package com.lifegoals.app.activities;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
 
-public class YourGoalsActivity extends AppActivity implements
+public class YourGoalsActivity extends Activity implements
 		SavedGoalAdapterListener {
 
 	private RecyclerView mRecycler;
