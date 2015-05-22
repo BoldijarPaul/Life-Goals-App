@@ -16,8 +16,15 @@
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
-        <LinearLayout
+        <com.lifegoals.app.ui.GoalView
             android:id="@+id/activity_add_goal_preview"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/activity_add_goal_preview_button"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"

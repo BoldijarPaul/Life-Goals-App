@@ -1,4 +1,4 @@
-package com.lifegoals.app;
+package com.lifegoals.app.activities;
 
 import java.util.Date;
 
@@ -9,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lifegoals.app.activities.AppActivity;
+import com.lifegoals.app.R;
+import com.lifegoals.app.R.drawable;
+import com.lifegoals.app.R.id;
+import com.lifegoals.app.R.layout;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.SavedGoal;
@@ -17,13 +20,13 @@ import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
+import com.lifegoals.app.ui.GoalView;
 import com.lifegoals.app.ui.TextDrawable;
 
 public class YourGoalInfoActivity extends AppActivity {
 
 	private SavedGoal savedGoal;
-	private TextView mText;
-	private View mRoot;
+	private GoalView mGoalView;
 	private View mIcon;
 	private TextView mGoalOwner;
 	private TextView mTimeText;
@@ -36,12 +39,16 @@ public class YourGoalInfoActivity extends AppActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_your_goal_info);
-
+		setActionBarText("Your saved goal info");
 		savedGoal = GsonHelper.toObject(
 				getIntent().getStringExtra("savedGoal"), SavedGoal.class);
 		if (savedGoal == null) {
 			finish();
 			/* no saved goal, there was an error probably */
+		}
+		if (savedGoal.getGoal() == null) {
+			finish();
+			/* the saved goal doesn't have the Goal entity loaded */
 		}
 
 		loadViews();
@@ -125,8 +132,7 @@ public class YourGoalInfoActivity extends AppActivity {
 	}
 
 	private void loadViews() {
-		mText = (TextView) findViewById(R.id.activity_your_goal_info_text);
-		mRoot = findViewById(R.id.activity_your_goal_info_root);
+		mGoalView = (GoalView) findViewById(R.id.activity_your_goal_info_goal);
 		mIcon = findViewById(R.id.activity_your_goal_info_icon);
 		mTimeText = (TextView) findViewById(R.id.activity_your_goal_info_date);
 		mGoalOwner = (TextView) findViewById(R.id.activity_your_goal_info_user);
@@ -136,8 +142,8 @@ public class YourGoalInfoActivity extends AppActivity {
 		mDoneIcon = (ImageView) findViewById(R.id.layout_goal_buttons_done_icon);
 		mDoneText = (TextView) findViewById(R.id.layout_goal_buttons_done_text);
 
-		mText.setText(savedGoal.getGoal().getText());
-		mRoot.setBackgroundColor(savedGoal.getGoal().getColor());
+		mGoalView.setText(savedGoal.getGoal().getText());
+		mGoalView.setColor(savedGoal.getGoal().getColor());
 		setSavedGoalState(savedGoal.isDone());
 		mTimeText.setText(new Date(savedGoal.getCreatedDate()).toString());
 		mChangeState.setOnClickListener(new OnClickListener() {

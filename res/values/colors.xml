@@ -6,5 +6,6 @@
     <color name="color_primary_darker">#23313f</color>
     <color name="color_selected">#d2f2f5</color>
     <color name="color_divider">#bdc1c5</color>
+    <color name="color_text">#ffffff</color>
 
 </resources>

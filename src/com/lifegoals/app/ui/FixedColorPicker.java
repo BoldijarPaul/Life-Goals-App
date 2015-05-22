@@ -20,6 +20,10 @@ public class FixedColorPicker extends LinearLayout {
 		return mLastColor;
 	}
 
+	public void setColor(int color) {
+		mLastColor = color;
+	}
+
 	public FixedColorPicker(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		if (!isInEditMode()) {

@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.YourGoalInfoActivity;
 import com.lifegoals.app.adapters.goals.SavedGoalAdapter;
 import com.lifegoals.app.adapters.goals.SavedGoalAdapterListener;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
@@ -31,6 +30,7 @@ public class YourGoalsActivity extends AppActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_your_goals);
+		setActionBarText("Your saved goals");
 		user = GsonHelper.toObject(getIntent().getStringExtra("user"),
 				User.class);
 		if (user == null) {
@@ -70,9 +70,22 @@ public class YourGoalsActivity extends AppActivity implements
 				if (value == null) {
 					/* error */
 					Toast.makeText(getApplicationContext(),
-							"Error trying to submit this goal!",
+							"Error trying to get the goals!",
 							Toast.LENGTH_SHORT).show();
 				} else {
+					/*
+					 * if a saved goal doens't have the Goal field as well ,
+					 * return
+					 */
+					for (SavedGoal savedGoal : value) {
+						if (savedGoal.getGoal() == null) {
+							Toast.makeText(getApplicationContext(),
+									"Error trying to get the goals!",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+					}
+					/* everything is ok */
 					gotSavedGoals(value);
 				}
 
@@ -83,25 +96,6 @@ public class YourGoalsActivity extends AppActivity implements
 	protected void gotSavedGoals(List<SavedGoal> value) {
 		mRecycler.setAdapter(new SavedGoalAdapter(value)
 				.setOnSavedAdapterListener(this));
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.your_goals, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

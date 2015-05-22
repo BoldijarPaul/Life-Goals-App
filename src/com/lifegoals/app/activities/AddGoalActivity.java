@@ -2,9 +2,13 @@ package com.lifegoals.app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +22,7 @@ import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
 import com.lifegoals.app.ui.FixedColorPicker;
 import com.lifegoals.app.ui.FixedColorPicker.ColorClickListener;
+import com.lifegoals.app.ui.GoalView;
 
 public class AddGoalActivity extends AppActivity {
 
@@ -27,11 +32,15 @@ public class AddGoalActivity extends AppActivity {
 	private EditText mText;
 	private View mSubmit;
 	private View mProgress;
+	private GoalView mGoalView;
+	private View mPreviewGoalButton;
 
 	private boolean goalIsPublic = true;
+	private boolean showingPreview = false;
 	private User user;
 
-	private Animation mScaleUpAnimation, mScaleDownAnimation;
+	private Animation mScaleUpAnimation, mScaleDownAnimation,
+			mSlideUpAnimation, mSlideDownAnimation;
 
 	private final int[] mPostColors = new int[] { 0xffe74c3c, 0xff2980b9,
 			0xff16a085, 0xffd35400, 0xff9b59b6, 0xffe67e22 };
@@ -41,7 +50,7 @@ public class AddGoalActivity extends AppActivity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_goal);
-
+		setActionBarText("Add a new goal");
 		loadViews();
 
 		if (savedInstanceState != null) {
@@ -69,11 +78,21 @@ public class AddGoalActivity extends AppActivity {
 				0.5f);
 		mScaleUpAnimation.setDuration(500);
 		mScaleUpAnimation.setFillAfter(true);
+		mSlideDownAnimation = AnimationUtils.loadAnimation(
+				getApplicationContext(), R.anim.slide_down);
+		mSlideUpAnimation = AnimationUtils.loadAnimation(
+				getApplicationContext(), R.anim.slide_up);
+		mSlideUpAnimation.setDuration(500);
+		mSlideUpAnimation.setFillAfter(true);
+		mSlideDownAnimation.setDuration(500);
+		mSlideDownAnimation.setFillAfter(true);
 
 	}
 
 	private void loadViews() {
 		setupAnimations();
+		mPreviewGoalButton = findViewById(R.id.activity_add_goal_preview_button);
+		mGoalView = (GoalView) findViewById(R.id.activity_add_goal_preview);
 		mColorBoxes = (FixedColorPicker) findViewById(R.id.activity_add_goal_colors);
 		mColorPreview = findViewById(R.id.activity_add_goal_color_preview);
 		mPublic = findViewById(R.id.activity_add_goal_public);
@@ -81,6 +100,28 @@ public class AddGoalActivity extends AppActivity {
 		mSubmit = findViewById(R.id.activity_add_goal_submit);
 		mProgress = findViewById(R.id.activity_add_goal_progress);
 		mText = (EditText) findViewById(R.id.activity_add_goal_text);
+		mText.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				mGoalView.setText(s.toString());
+
+			}
+		});
 		mSubmit.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -90,12 +131,22 @@ public class AddGoalActivity extends AppActivity {
 			}
 		});
 		mColorPreview.setBackgroundColor(mPostColors[0]);
+		mGoalView.setColor(mPostColors[0]);
 		mColorBoxes.addColors(mPostColors);
+		mPreviewGoalButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				switchPreviewState();
+
+			}
+		});
 		mColorBoxes.setOnColorListener(new ColorClickListener() {
 
 			@Override
 			public void onClick(View view, int color) {
 				mColorPreview.setBackgroundColor(color);
+				mGoalView.setColor(color);
 
 			}
 		});
@@ -115,6 +166,41 @@ public class AddGoalActivity extends AppActivity {
 
 			}
 		});
+	}
+
+	/* this method will show the current goal, or hide it */
+	protected void switchPreviewState() {
+
+		if (mGoalView.getVisibility() == View.GONE) {
+			mGoalView.setVisibility(View.VISIBLE);
+		}
+		showingPreview = !showingPreview;
+		if (showingPreview) {
+			mGoalView.startAnimation(mSlideDownAnimation);
+		} else {
+			mSlideUpAnimation.setAnimationListener(new AnimationListener() {
+
+				@Override
+				public void onAnimationStart(Animation animation) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void onAnimationRepeat(Animation animation) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					mGoalView.setVisibility(View.GONE);
+				}
+			});
+		}
+		mGoalView.startAnimation(showingPreview ? mSlideDownAnimation
+				: mSlideUpAnimation);
+
 	}
 
 	protected void submitClicked() {

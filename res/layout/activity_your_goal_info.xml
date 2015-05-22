@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.lifegoals.app.YourGoalInfoActivity" >
+    tools:context="com.lifegoals.app.activities.YourGoalInfoActivity" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -42,21 +42,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/activity_your_goal_info_root"
+    <com.lifegoals.app.ui.GoalView
+        android:id="@+id/activity_your_goal_info_goal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" >
-
-        <TextView
-            android:id="@+id/activity_your_goal_info_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="40sp" />
-    </RelativeLayout>
+        android:layout_weight="1" />
 
     <include layout="@layout/layout_goal_buttons" />
 
