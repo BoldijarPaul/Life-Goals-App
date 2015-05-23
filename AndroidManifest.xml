@@ -30,7 +30,7 @@
             android:label="@string/title_activity_add_goal" >
         </activity>
         <activity
-            android:name=".activities.YourGoalsActivity"
+            android:name=".activities.YourSavedGoalsActivity"
             android:label="@string/title_activity_your_goals" >
         </activity>
         <activity

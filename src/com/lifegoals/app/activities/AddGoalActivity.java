@@ -1,6 +1,5 @@
 package com.lifegoals.app.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -238,13 +237,6 @@ public class AddGoalActivity extends AppActivity {
 				}
 			}
 		});
-	}
-
-	@Override
-	public void onBackPressed() {
-		Intent intent = new Intent(this, YourGoalsActivity.class);
-		intent.putExtra("user", GsonHelper.toString(user));
-		startActivity(intent);
 	}
 
 	@Override

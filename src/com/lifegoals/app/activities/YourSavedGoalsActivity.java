@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
@@ -20,7 +18,7 @@ import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.GsonHelper;
 
-public class YourGoalsActivity extends AppActivity implements
+public class YourSavedGoalsActivity extends AppActivity implements
 		SavedGoalAdapterListener {
 
 	private RecyclerView mRecycler;
@@ -48,13 +46,6 @@ public class YourGoalsActivity extends AppActivity implements
 		layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 		mRecycler.setLayoutManager(layoutManager);
 
-	}
-
-	@Override
-	public void onBackPressed() {
-		Intent intent = new Intent(this, AddGoalActivity.class);
-		intent.putExtra("user", GsonHelper.toString(user));
-		startActivity(intent);
 	}
 
 	private void loadSavedGoals() {
