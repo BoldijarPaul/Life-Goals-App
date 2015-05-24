@@ -29,8 +29,7 @@ public class YourSavedGoalsActivity extends AppActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_your_goals);
 		setActionBarText("Your saved goals");
-		user = GsonHelper.toObject(getIntent().getStringExtra("user"),
-				User.class);
+		user = (User) getIntent().getSerializableExtra("user");
 		if (user == null) {
 			finish();
 			/* no user, there was an error probably */
@@ -92,7 +91,8 @@ public class YourSavedGoalsActivity extends AppActivity implements
 	@Override
 	public void onSavedGoalClicked(SavedGoal savedGoal) {
 		Intent intent = new Intent(this, YourGoalInfoActivity.class);
-		intent.putExtra("savedGoal", GsonHelper.toString(savedGoal));
+		intent.putExtra("savedGoal", savedGoal);
+		intent.putExtra("user", user);
 		startActivity(intent);
 	}
 }

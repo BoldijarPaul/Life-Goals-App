@@ -55,8 +55,8 @@ public class AddGoalActivity extends AppActivity {
 		if (savedInstanceState != null) {
 			goalIsPublic = savedInstanceState.getBoolean("goalIsPublic", true);
 		}
-		user = GsonHelper.toObject(getIntent().getStringExtra("user"),
-				User.class);
+
+		user = (User) getIntent().getSerializableExtra("user");
 
 		if (user == null) {
 			finish();

@@ -53,4 +53,6 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 		return vh;
 	}
 
+	
+	
 }

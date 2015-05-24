@@ -40,8 +40,7 @@ public class YourGoalInfoActivity extends AppActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_your_goal_info);
 		setActionBarText("Your saved goal info");
-		savedGoal = GsonHelper.toObject(
-				getIntent().getStringExtra("savedGoal"), SavedGoal.class);
+		savedGoal = (SavedGoal) getIntent().getSerializableExtra("savedGoal");
 		if (savedGoal == null) {
 			finish();
 			/* no saved goal, there was an error probably */
@@ -99,7 +98,7 @@ public class YourGoalInfoActivity extends AppActivity {
 		}
 
 		/* done, now update the intent */
-		getIntent().putExtra("savedGoal", GsonHelper.toString(savedGoal));
+		getIntent().putExtra("savedGoal", savedGoal);
 
 		// now try to sync with the server
 		if (oldState == done) /* only try if the state was changed */

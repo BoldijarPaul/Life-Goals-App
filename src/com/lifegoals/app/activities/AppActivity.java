@@ -9,7 +9,6 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lifegoals.app.AllGoalsActivity;
 import com.lifegoals.app.R;
 import com.lifegoals.app.helper.DrawerHelper;
 
@@ -75,7 +74,7 @@ public class AppActivity extends Activity {
 
 	protected <T> void changeActivity(Class<T> class1) {
 		Intent intent = new Intent(this, class1);
-		intent.putExtra("user", getIntent().getStringExtra("user"));
+		intent.putExtra("user", getIntent().getSerializableExtra("user"));
 		startActivity(intent);
 		drawerHelper.closeDrawer();
 

@@ -81,7 +81,7 @@ public class HomeActivity extends Activity {
 				/* start the next activity */
 				Intent intent = new Intent(HomeActivity.this,
 						YourSavedGoalsActivity.class);
-				intent.putExtra("user", GsonHelper.toString(value.getUser()));
+				intent.putExtra("user", value.getUser());
 				startActivity(intent);
 
 			}

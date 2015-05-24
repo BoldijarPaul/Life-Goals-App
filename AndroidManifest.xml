@@ -38,7 +38,7 @@
             android:label="@string/title_activity_your_goal_info" >
         </activity>
         <activity
-            android:name=".AllGoalsActivity"
+            android:name="com.lifegoals.app.activities.AllGoalsActivity"
             android:label="@string/title_activity_all_goals" >
         </activity>
     </application>
