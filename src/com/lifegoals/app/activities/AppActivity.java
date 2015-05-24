@@ -74,10 +74,22 @@ public class AppActivity extends Activity {
 
 	protected <T> void changeActivity(Class<T> class1) {
 		Intent intent = new Intent(this, class1);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+				| Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		intent.putExtra("user", getIntent().getSerializableExtra("user"));
 		startActivity(intent);
 		drawerHelper.closeDrawer();
+	}
 
+	@Override
+	public void onBackPressed() {
+		if (isTaskRoot()) {
+			Intent intent = new Intent(this, HomeActivity.class);
+			startActivity(intent);
+			finish();
+			return;
+		}
+		super.onBackPressed();
 	}
 
 	@Override
