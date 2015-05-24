@@ -69,6 +69,7 @@ public class GoalView extends FrameLayout {
 
 	public void setText(String text) {
 		mText.setText(text);
+
 	}
 
 	public void setColor(int color) {
