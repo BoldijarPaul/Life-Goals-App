@@ -1,5 +1,6 @@
 package com.lifegoals.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -18,6 +19,8 @@ import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 public class AllGoalsActivity extends AppActivity {
 
 	private RecyclerView mRecycler;
+	private GoalAdapter mGoalAdapter;
+	private List<Goal> mGoals;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,10 @@ public class AllGoalsActivity extends AppActivity {
 					"Can't get the goals from the server!", Toast.LENGTH_SHORT)
 					.show();
 		}
-		mRecycler.setAdapter(new GoalAdapter(value));
+		mGoals = value;
+		mGoalAdapter.setGoals(mGoals);
+		mGoalAdapter.notifyDataSetChanged();
+
 	}
 
 	private void loadViews() {
@@ -57,6 +63,9 @@ public class AllGoalsActivity extends AppActivity {
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this,
 				LinearLayoutManager.HORIZONTAL, false);
 		mRecycler.setLayoutManager(layoutManager);
+		mGoals = new ArrayList<Goal>();
+		mGoalAdapter = new GoalAdapter(mGoals);
+		mRecycler.setAdapter(mGoalAdapter);
 
 	}
 

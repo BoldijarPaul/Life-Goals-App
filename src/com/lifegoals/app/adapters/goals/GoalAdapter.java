@@ -16,17 +16,20 @@ import com.lifegoals.app.helper.DrawableHelper;
 public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 
 	private List<Goal> goals;
-	private GoalAdapterListener listener;
+
+	public List<Goal> getGoals() {
+		return goals;
+	}
+
+	public void setGoals(List<Goal> goals) {
+		this.goals = goals;
+	}
 
 	public GoalAdapter(List<Goal> goals) {
 		super();
 		this.goals = goals;
 	}
-
-	public GoalAdapter setOnSavedAdapterListener(GoalAdapterListener listener) {
-		this.listener = listener;
-		return this;
-	}
+ 
 
 	@Override
 	public int getItemCount() {
