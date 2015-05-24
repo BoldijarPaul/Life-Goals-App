@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.client.management.AppContext;
@@ -14,7 +13,7 @@ import com.lifegoals.app.entities.LoginInfo;
 import com.lifegoals.app.entities.LoginResult;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
-import com.lifegoals.app.helper.GsonHelper;
+import com.lifegoals.app.helper.UIHelper;
 
 public class HomeActivity extends Activity {
 
@@ -65,14 +64,13 @@ public class HomeActivity extends Activity {
 				mInputLayout.setVisibility(View.VISIBLE);
 				mProgressBar.setVisibility(View.GONE);
 				if (value == null) {
-					Toast.makeText(getApplicationContext(),
-							"Error trying to login", Toast.LENGTH_SHORT).show();
+					UIHelper.showCrouton("Error trying to login!",
+							HomeActivity.this);
 					return;
 				}
 				if (!value.isSuccess()) {
-					Toast.makeText(getApplicationContext(),
-							"Invalid username or password", Toast.LENGTH_SHORT)
-							.show();
+					UIHelper.showCrouton("Invalid username or password!",
+							HomeActivity.this);
 					return;
 				}
 

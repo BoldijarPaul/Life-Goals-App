@@ -1,5 +1,6 @@
 package com.lifegoals.app.helper;
 
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.LinearLayout;
@@ -29,6 +30,10 @@ public class UIHelper {
 			}
 			colorIndex++;
 		}
+
+	}
+
+	public static void showCrouton(String text, Activity activity) {
 
 	}
 }

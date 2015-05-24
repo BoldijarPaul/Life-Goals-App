@@ -3,20 +3,17 @@ package com.lifegoals.app.activities;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.R.id;
-import com.lifegoals.app.R.layout;
 import com.lifegoals.app.adapters.goals.GoalAdapter;
 import com.lifegoals.app.client.management.ClientGoalManagement;
 import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
+import com.lifegoals.app.helper.UIHelper;
 
 public class AllGoalsActivity extends AppActivity {
 
@@ -31,6 +28,7 @@ public class AllGoalsActivity extends AppActivity {
 		setActionBarText("Find new goals");
 		loadViews();
 		loadGoals();
+
 	}
 
 	private void loadGoals() {
@@ -50,9 +48,8 @@ public class AllGoalsActivity extends AppActivity {
 
 	protected void gotGoals(List<Goal> value) {
 		if (value == null) {
-			Toast.makeText(getApplicationContext(),
-					"Can't get the goals from the server!", Toast.LENGTH_SHORT)
-					.show();
+			UIHelper.showCrouton("Can't get the goals from the server!",
+					AllGoalsActivity.this);
 		}
 		mGoals = value;
 		mGoalAdapter.setGoals(mGoals);
@@ -71,4 +68,8 @@ public class AllGoalsActivity extends AppActivity {
 
 	}
 
+	@Override
+	public String getName() {
+		return getClass().getCanonicalName();
+	}
 }

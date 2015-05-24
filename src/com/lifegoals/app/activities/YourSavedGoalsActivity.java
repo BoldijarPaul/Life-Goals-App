@@ -16,7 +16,7 @@ import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
-import com.lifegoals.app.helper.GsonHelper;
+import com.lifegoals.app.helper.UIHelper;
 
 public class YourSavedGoalsActivity extends AppActivity implements
 		SavedGoalAdapterListener {
@@ -69,9 +69,9 @@ public class YourSavedGoalsActivity extends AppActivity implements
 					 */
 					for (SavedGoal savedGoal : value) {
 						if (savedGoal.getGoal() == null) {
-							Toast.makeText(getApplicationContext(),
-									"Error trying to get the goals!",
-									Toast.LENGTH_SHORT).show();
+							UIHelper.showCrouton(
+									"Can't load your saved goals!",
+									YourSavedGoalsActivity.this);
 							return;
 						}
 					}
@@ -90,9 +90,22 @@ public class YourSavedGoalsActivity extends AppActivity implements
 
 	@Override
 	public void onSavedGoalClicked(SavedGoal savedGoal) {
-		Intent intent = new Intent(this, YourGoalInfoActivity.class);
+		Intent intent = new Intent(this, YourSavedGoalInfoActivity.class);
 		intent.putExtra("savedGoal", savedGoal);
 		intent.putExtra("user", user);
-		startActivity(intent);
+		startActivityForResult(intent, 0);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == 0 && resultCode == RESULT_OK) {
+			loadSavedGoals();
+		}
+	}
+
+	@Override
+	public String getName() {
+		return getClass().getCanonicalName();
 	}
 }

@@ -2,7 +2,6 @@ package com.lifegoals.app.adapters.goals;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.ui.GoalView;

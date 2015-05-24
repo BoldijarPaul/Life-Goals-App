@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.helper.DrawerHelper;
 
-public class AppActivity extends Activity {
+public abstract class AppActivity extends Activity {
 
 	private DrawerHelper drawerHelper;
 	private View drawerView;
@@ -25,7 +26,7 @@ public class AppActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		 
+
 		getActionBar().setIcon(R.drawable.ic_menu);
 		getActionBar().setDisplayShowTitleEnabled(false);
 		getActionBar().setHomeButtonEnabled(true);
@@ -73,7 +74,16 @@ public class AppActivity extends Activity {
 		});
 	}
 
+	public abstract String getName();
+
 	protected <T> void changeActivity(Class<T> class1) {
+
+		if (getName().equals(class1.getName())) {
+			drawerHelper.closeDrawer();
+			return;
+
+		}
+
 		Intent intent = new Intent(this, class1);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 				| Intent.FLAG_ACTIVITY_CLEAR_TASK);

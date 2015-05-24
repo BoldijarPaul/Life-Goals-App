@@ -10,20 +10,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.R.drawable;
-import com.lifegoals.app.R.id;
-import com.lifegoals.app.R.layout;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
-import com.lifegoals.app.helper.GsonHelper;
+import com.lifegoals.app.helper.UIHelper;
 import com.lifegoals.app.ui.GoalView;
 import com.lifegoals.app.ui.TextDrawable;
 
-public class YourGoalInfoActivity extends AppActivity {
+public class YourSavedGoalInfoActivity extends AppActivity {
 
 	private SavedGoal savedGoal;
 	private GoalView mGoalView;
@@ -113,14 +110,11 @@ public class YourGoalInfoActivity extends AppActivity {
 			@Override
 			public void onDone(SavedGoal value, long ms) {
 				if (value == null) {
-					Toast.makeText(getApplicationContext(),
-							"Could not sync data with the server!",
-							Toast.LENGTH_SHORT).show();
-				} else {
-					Toast.makeText(getApplicationContext(),
-							"Successfully synced with the server!",
-							Toast.LENGTH_SHORT).show();
+					UIHelper.showCrouton("Can't sync data with the server",
+							YourSavedGoalInfoActivity.this);
+					return;
 				}
+				setResult(RESULT_OK);
 			}
 		});
 
@@ -185,6 +179,11 @@ public class YourGoalInfoActivity extends AppActivity {
 			}
 		});
 
+	}
+
+	@Override
+	public String getName() {
+		return getClass().getCanonicalName();
 	}
 
 }

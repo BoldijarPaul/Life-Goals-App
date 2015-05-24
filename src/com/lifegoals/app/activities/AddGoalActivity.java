@@ -10,7 +10,6 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.client.management.ClientColorManagement;
@@ -19,6 +18,7 @@ import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
+import com.lifegoals.app.helper.UIHelper;
 import com.lifegoals.app.ui.FixedColorPicker;
 import com.lifegoals.app.ui.FixedColorPicker.ColorClickListener;
 import com.lifegoals.app.ui.GoalView;
@@ -251,13 +251,12 @@ public class AddGoalActivity extends AppActivity {
 				mProgress.setVisibility(View.GONE);
 				if (value == null) {
 					/* error */
-					Toast.makeText(getApplicationContext(),
-							"Error trying to submit this goal!",
-							Toast.LENGTH_SHORT).show();
+					UIHelper.showCrouton("Error, goal was not added!",
+							AddGoalActivity.this);
 				} else {
-					Toast.makeText(getApplicationContext(),
-							"Goal successfully added!", Toast.LENGTH_SHORT)
-							.show();
+					UIHelper.showCrouton("Goal successfully added!",
+							AddGoalActivity.this);
+
 					mText.setText(null);
 				}
 			}
@@ -285,5 +284,10 @@ public class AddGoalActivity extends AppActivity {
 
 		}
 
+	}
+
+	@Override
+	public String getName() {
+		return getClass().getCanonicalName();
 	}
 }

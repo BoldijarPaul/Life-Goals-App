@@ -35,7 +35,7 @@
             android:label="@string/title_activity_your_goals" >
         </activity>
         <activity
-            android:name=".activities.YourGoalInfoActivity"
+            android:name=".activities.YourSavedGoalInfoActivity"
             android:label="@string/title_activity_your_goal_info" >
         </activity>
         <activity
