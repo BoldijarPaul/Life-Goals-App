@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lifegoals.app.AllGoalsActivity;
 import com.lifegoals.app.R;
 import com.lifegoals.app.helper.DrawerHelper;
 
@@ -18,6 +19,8 @@ public class AppActivity extends Activity {
 	private View drawerView;
 	private View mAddGoal;
 	private View mViewSavedGoals;
+	private View mLogout;
+	private View mSearchGoals;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,11 @@ public class AppActivity extends Activity {
 				.findViewById(R.id.layout_drawer_container_add_goal);
 		mViewSavedGoals = drawerView
 				.findViewById(R.id.layout_drawer_container_view_saved_goal);
-
+		mSearchGoals = drawerView
+				.findViewById(R.id.layout_drawer_container_search_goals);
+		mLogout = drawerView.findViewById(R.id.layout_drawer_container_logout);
 		/* events */
+
 		mAddGoal.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -44,11 +50,25 @@ public class AppActivity extends Activity {
 				changeActivity(AddGoalActivity.class);
 			}
 		});
+
+		mLogout.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				changeActivity(HomeActivity.class);
+			}
+		});
 		mViewSavedGoals.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				changeActivity(YourSavedGoalsActivity.class);
+			}
+		});
+		mSearchGoals.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeActivity(AllGoalsActivity.class);
 			}
 		});
 	}

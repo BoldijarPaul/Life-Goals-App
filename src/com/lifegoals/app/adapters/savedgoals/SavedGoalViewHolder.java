@@ -1,4 +1,4 @@
-package com.lifegoals.app.adapters.goals;
+package com.lifegoals.app.adapters.savedgoals;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

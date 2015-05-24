@@ -1,4 +1,4 @@
-package com.lifegoals.app.adapters.goals;
+package com.lifegoals.app.adapters.savedgoals;
 
 import java.util.List;
 

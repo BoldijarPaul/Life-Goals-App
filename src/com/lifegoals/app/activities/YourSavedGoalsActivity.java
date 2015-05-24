@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
-import com.lifegoals.app.adapters.goals.SavedGoalAdapter;
-import com.lifegoals.app.adapters.goals.SavedGoalAdapterListener;
+import com.lifegoals.app.adapters.savedgoals.SavedGoalAdapter;
+import com.lifegoals.app.adapters.savedgoals.SavedGoalAdapterListener;
 import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.entities.User;

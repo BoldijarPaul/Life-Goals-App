@@ -7,5 +7,6 @@
     <string name="title_activity_add_goal">Add Goal</string>
     <string name="title_activity_your_goals">YourGoalsActivity</string>
     <string name="title_activity_your_goal_info">YourGoalInfoActivity</string>
+    <string name="title_activity_all_goals">AllGoalsActivity</string>
 
 </resources>
