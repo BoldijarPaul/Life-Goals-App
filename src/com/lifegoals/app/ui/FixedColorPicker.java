@@ -60,6 +60,11 @@ public class FixedColorPicker extends LinearLayout {
 
 	}
 
+	public void removeColors() {
+		this.colors = new int[0];
+		removeAllViews();
+	}
+
 	public void addColors(int... colors) {
 		this.colors = colors;
 		mLastColor = colors[0];

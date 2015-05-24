@@ -13,12 +13,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifegoals.app.R;
+import com.lifegoals.app.client.management.ClientColorManagement;
 import com.lifegoals.app.client.management.ClientGoalManagement;
 import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
-import com.lifegoals.app.helper.GsonHelper;
 import com.lifegoals.app.ui.FixedColorPicker;
 import com.lifegoals.app.ui.FixedColorPicker.ColorClickListener;
 import com.lifegoals.app.ui.GoalView;
@@ -64,6 +64,31 @@ public class AddGoalActivity extends AppActivity {
 
 		}
 		postTypeChanged(goalIsPublic);
+		loadColors();
+
+	}
+
+	private void loadColors() {
+		AsyncTaskHelper.create(new AsyncMethods<int[]>() {
+
+			@Override
+			public int[] doInBackground() {
+				return ClientColorManagement.getAllColors();
+			}
+
+			@Override
+			public void onDone(int[] value, long ms) {
+				if (value != null) {
+					mColorBoxes.removeAllViews();
+					mColorBoxes.addColors(value);
+					if (value.length > 0) {
+						mColorPreview.setBackgroundColor(value[0]);
+					}
+				}
+
+			}
+		});
+
 	}
 
 	private void setupAnimations() {
