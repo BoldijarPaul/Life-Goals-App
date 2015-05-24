@@ -25,6 +25,7 @@ public class AppActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		 
 		getActionBar().setIcon(R.drawable.ic_menu);
 		getActionBar().setDisplayShowTitleEnabled(false);
 		getActionBar().setHomeButtonEnabled(true);

@@ -23,6 +23,7 @@ public class HomeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		AppContext.setRoot("http://app-leaderboards.rhcloud.com/api/");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		loadViews();
