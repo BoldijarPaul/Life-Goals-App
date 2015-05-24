@@ -3,6 +3,7 @@
     android:id="@+id/layout_goal_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:scrollbars="none" >
