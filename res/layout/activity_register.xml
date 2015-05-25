@@ -10,29 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lifegoals.app.activities.HomeActivity" >
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:padding="30dp"
-            android:src="@drawable/home_logo" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:src="@drawable/home_text" />
-    </LinearLayout>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center|bottom"
+        android:src="@drawable/home_logo" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -41,7 +23,7 @@
         android:layout_weight="1" >
 
         <ProgressBar
-            android:id="@+id/activity_home_progressbar"
+            android:id="@+id/activity_register_progressbar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
@@ -50,7 +32,7 @@
             android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/activity_home_input_layout"
+            android:id="@+id/activity_register_input_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -58,43 +40,40 @@
             android:orientation="vertical" >
 
             <EditText
-                android:id="@+id/activity_home_username"
+                android:id="@+id/activity_register_username"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="Username"
-                android:singleLine="true"
-                android:text="user" />
+                android:singleLine="true" />
 
             <EditText
-                android:id="@+id/activity_home_password"
+                android:id="@+id/activity_register_password"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:hint="Password"
-                android:singleLine="true"
-                android:text="user" />
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/activity_register_email"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
 
             <Button
-                android:id="@+id/activity_home_login"
+                android:id="@+id/activity_register_register"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/selector_button"
-                android:text="Login"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:id="@+id/activity_home_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:text="Register"
-                android:textColor="@color/color_primary"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </RelativeLayout>
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.lifegoals.app.R;
 
@@ -34,6 +35,6 @@ public class UIHelper {
 	}
 
 	public static void showCrouton(String text, Activity activity) {
-
+		Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
 	}
 }

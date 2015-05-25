@@ -11,7 +11,7 @@
         android:targetSdkVersion="21" />
 
     <application
-        android:name="com.lifegoals.app.activities.AppApplication"
+        android:name=".activities.AppApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -39,8 +39,13 @@
             android:label="@string/title_activity_your_goal_info" >
         </activity>
         <activity
-            android:name="com.lifegoals.app.activities.AllGoalsActivity"
+            android:name=".activities.AllGoalsActivity"
             android:label="@string/title_activity_all_goals" >
+        </activity>
+        <activity
+            android:name="com.lifegoals.app.activities.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppThemeNoActionBar" >
         </activity>
     </application>
 

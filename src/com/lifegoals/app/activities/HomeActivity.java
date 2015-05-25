@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 
 import com.lifegoals.app.R;
@@ -18,11 +19,11 @@ import com.lifegoals.app.helper.UIHelper;
 public class HomeActivity extends Activity {
 
 	private EditText mUsername, mPassword;
-	private View mButton, mInputLayout, mProgressBar;
+	private View mButton, mInputLayout, mProgressBar, mRegister;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		AppContext.setRoot("http://app-leaderboards.rhcloud.com/api/");
+		// AppContext.setRoot("http://app-leaderboards.rhcloud.com/api/");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		loadViews();
@@ -35,14 +36,28 @@ public class HomeActivity extends Activity {
 		mButton = findViewById(R.id.activity_home_login);
 		mInputLayout = findViewById(R.id.activity_home_input_layout);
 		mProgressBar = findViewById(R.id.activity_home_progressbar);
+		mRegister = findViewById(R.id.activity_home_register);
+		mRegister.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				registerClicked();
+			}
+		});
 		mButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
 				loginClicked();
 			}
 		});
+	}
+
+	protected void registerClicked() {
+		Intent intent = new Intent(this, RegisterActivity.class);
+		startActivity(intent);
+
 	}
 
 	protected void loginClicked() {
