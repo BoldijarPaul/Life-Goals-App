@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.lifegoals.app.R;
+import com.lifegoals.app.adapters.goals.GoalViewHolder.GoalViewHolderListener;
 import com.lifegoals.app.entities.Goal;
 import com.lifegoals.app.entities.SavedGoal;
 import com.lifegoals.app.helper.DrawableHelper;
@@ -16,9 +17,18 @@ import com.lifegoals.app.helper.DrawableHelper;
 public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 
 	private List<Goal> goals;
+	private GoalViewHolderListener listener;
 
 	public List<Goal> getGoals() {
 		return goals;
+	}
+
+	public void setListener(GoalViewHolderListener listener) {
+		this.listener = listener;
+	}
+
+	public GoalViewHolderListener getListener() {
+		return listener;
 	}
 
 	public void setGoals(List<Goal> goals) {
@@ -29,7 +39,6 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 		super();
 		this.goals = goals;
 	}
- 
 
 	@Override
 	public int getItemCount() {
@@ -43,6 +52,33 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 		final Goal goal = goals.get(arg1);
 		arg0.goalView.setText(goal.getText());
 		arg0.goalView.setColor(goal.getColor());
+
+		/* buttons */
+
+		arg0.mSave.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (listener != null)
+					listener.onSaveClicked(goal);
+			}
+		});
+		arg0.mShare.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (listener != null)
+					listener.onShareClicked(goal);
+			}
+		});
+		arg0.mInfo.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (listener != null)
+					listener.onInfoClicked(goal);
+			}
+		});
 	}
 
 	@Override
@@ -53,6 +89,4 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalViewHolder> {
 		return vh;
 	}
 
-	
-	
 }

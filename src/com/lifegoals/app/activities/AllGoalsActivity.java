@@ -9,22 +9,36 @@ import android.support.v7.widget.RecyclerView;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.adapters.goals.GoalAdapter;
+import com.lifegoals.app.adapters.goals.GoalViewHolder.GoalViewHolderListener;
 import com.lifegoals.app.client.management.ClientGoalManagement;
+import com.lifegoals.app.client.management.ClientSavedGoalManagement;
 import com.lifegoals.app.entities.Goal;
+import com.lifegoals.app.entities.SavedGoal;
+import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.UIHelper;
 
-public class AllGoalsActivity extends AppActivity {
+public class AllGoalsActivity extends AppActivity implements
+		GoalViewHolderListener {
 
 	private RecyclerView mRecycler;
 	private GoalAdapter mGoalAdapter;
 	private List<Goal> mGoals;
+	private User user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_all_goals);
+
+		user = (User) getIntent().getSerializableExtra("user");
+
+		if (user == null) {
+			finish();
+			/* no user, there was an error probably */
+
+		}
 		setActionBarText("Find new goals");
 		loadViews();
 		loadGoals();
@@ -64,6 +78,7 @@ public class AllGoalsActivity extends AppActivity {
 		mRecycler.setLayoutManager(layoutManager);
 		mGoals = new ArrayList<Goal>();
 		mGoalAdapter = new GoalAdapter(mGoals);
+		mGoalAdapter.setListener(this);
 		mRecycler.setAdapter(mGoalAdapter);
 
 	}
@@ -71,5 +86,46 @@ public class AllGoalsActivity extends AppActivity {
 	@Override
 	public String getName() {
 		return getClass().getCanonicalName();
+	}
+
+	/* this is called when a goal is clicked */
+	@Override
+	public void onSaveClicked(Goal goal) {
+		final SavedGoal savedGoal = new SavedGoal();
+		savedGoal.setUserId(user.getId());
+		savedGoal.setGoalId(goal.getId());
+		savedGoal.setDone(false);
+
+		AsyncTaskHelper.create(new AsyncMethods<SavedGoal>() {
+
+			@Override
+			public SavedGoal doInBackground() {
+				return ClientSavedGoalManagement.addSavedGoal(savedGoal);
+			}
+
+			@Override
+			public void onDone(SavedGoal value, long ms) {
+				if (value == null) {
+					UIHelper.showCrouton("Goal can't be saved!",
+							AllGoalsActivity.this);
+				} else {
+					UIHelper.showCrouton("Goal saved!", AllGoalsActivity.this);
+				}
+
+			}
+		});
+
+	}
+
+	@Override
+	public void onShareClicked(Goal goal) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onInfoClicked(Goal goal) {
+		// TODO Auto-generated method stub
+
 	}
 }
