@@ -174,6 +174,7 @@ public class YourSavedGoalInfoActivity extends AppActivity {
 				} else {
 					Toast.makeText(getApplicationContext(),
 							"Saved goal deleted!", Toast.LENGTH_SHORT).show();
+					setResult(RESULT_OK);
 					finish();
 				}
 			}

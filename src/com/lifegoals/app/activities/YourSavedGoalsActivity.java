@@ -27,7 +27,7 @@ public class YourSavedGoalsActivity extends AppActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_your_goals);
+		setContentView(R.layout.activity_your_saved_goals);
 		setActionBarText("Your saved goals");
 		user = (User) getIntent().getSerializableExtra("user");
 		if (user == null) {
@@ -59,9 +59,9 @@ public class YourSavedGoalsActivity extends AppActivity implements
 			public void onDone(List<SavedGoal> value, long ms) {
 				if (value == null) {
 					/* error */
-					Toast.makeText(getApplicationContext(),
-							"Error trying to get the goals!",
-							Toast.LENGTH_SHORT).show();
+
+					UIHelper.showCrouton("Error trying to get the goals!",
+							YourSavedGoalsActivity.this);
 				} else {
 					/*
 					 * if a saved goal doens't have the Goal field as well ,

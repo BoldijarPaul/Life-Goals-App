@@ -256,7 +256,7 @@ public class AddGoalActivity extends AppActivity {
 				} else {
 					UIHelper.showCrouton("Goal successfully added!",
 							AddGoalActivity.this);
-
+					loadColors();
 					mText.setText(null);
 				}
 			}
