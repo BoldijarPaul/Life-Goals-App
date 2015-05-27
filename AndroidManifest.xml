@@ -43,9 +43,13 @@
             android:label="@string/title_activity_all_goals" >
         </activity>
         <activity
-            android:name="com.lifegoals.app.activities.RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppThemeNoActionBar" >
+        </activity>
+        <activity
+            android:name="com.lifegoals.app.activities.YourAddedGoalsActivity"
+            android:label="@string/title_activity_your_added_goals" >
         </activity>
     </application>
 

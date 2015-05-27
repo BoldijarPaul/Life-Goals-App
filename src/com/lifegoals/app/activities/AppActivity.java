@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lifegoals.app.R;
 import com.lifegoals.app.helper.DrawerHelper;
@@ -21,6 +20,7 @@ public abstract class AppActivity extends Activity {
 	private View mViewSavedGoals;
 	private View mLogout;
 	private View mSearchGoals;
+	private View mYourGoals;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,8 @@ public abstract class AppActivity extends Activity {
 		mSearchGoals = drawerView
 				.findViewById(R.id.layout_drawer_container_search_goals);
 		mLogout = drawerView.findViewById(R.id.layout_drawer_container_logout);
+		mYourGoals = drawerView
+				.findViewById(R.id.layout_drawer_container_view_added_goal);
 		/* events */
 
 		mAddGoal.setOnClickListener(new OnClickListener() {
@@ -72,8 +74,18 @@ public abstract class AppActivity extends Activity {
 				changeActivity(AllGoalsActivity.class);
 			}
 		});
+		mYourGoals.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				changeActivity(YourAddedGoalsActivity.class);
+			}
+		});
 	}
 
+	/*
+	 * return the name of the class, used to check which class is currently
+	 * displayed,use return getClass().getCanonicalName();
+	 */
 	public abstract String getName();
 
 	protected <T> void changeActivity(Class<T> class1) {
