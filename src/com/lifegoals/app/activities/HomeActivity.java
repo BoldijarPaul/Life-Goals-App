@@ -13,6 +13,7 @@ import com.lifegoals.app.client.management.ClientUserManagement;
 import com.lifegoals.app.entities.LoginInfo;
 import com.lifegoals.app.entities.LoginResult;
 import com.lifegoals.app.helper.AsyncTaskHelper;
+import com.lifegoals.app.helper.CryptHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.UIHelper;
 
@@ -70,7 +71,9 @@ public class HomeActivity extends Activity {
 			public LoginResult doInBackground() {
 				LoginInfo loginInfo = new LoginInfo();
 				loginInfo.setName(mUsername.getText().toString());
-				loginInfo.setPassword(mPassword.getText().toString());
+				String password = mPassword.getText().toString();
+				password = CryptHelper.encrypt(password);
+				loginInfo.setPassword(password);
 				return ClientUserManagement.login(loginInfo);
 			}
 

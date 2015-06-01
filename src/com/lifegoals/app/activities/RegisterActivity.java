@@ -12,6 +12,7 @@ import com.lifegoals.app.entities.RegisterResponse;
 import com.lifegoals.app.entities.RegisterState;
 import com.lifegoals.app.entities.User;
 import com.lifegoals.app.helper.AsyncTaskHelper;
+import com.lifegoals.app.helper.CryptHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.UIHelper;
 
@@ -51,8 +52,12 @@ public class RegisterActivity extends Activity {
 
 		/* the user that we want to create */
 		final User user = new User();
+		/* encrypting the password for security reasons */
+		String password = mPassword.getText().toString();
+		password = CryptHelper.encrypt(password);
+
 		user.setName(mUsername.getText().toString());
-		user.setPassword(mPassword.getText().toString());
+		user.setPassword(password);
 		user.setEmail(mEmail.getText().toString());
 
 		AsyncTaskHelper.create(new AsyncMethods<RegisterResponse>() {
