@@ -28,8 +28,8 @@
                 android:background="@drawable/transparent_selector"
                 android:layout_height="42dp"
                 android:layout_width="42dp"
-                android:src="@drawable/ic_menu"
-                android:padding="10dp" />
+                android:src="@drawable/ic_menu_main_app"
+                android:padding="0dp" />
 
              
 

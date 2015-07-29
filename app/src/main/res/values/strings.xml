@@ -54,4 +54,10 @@
     <string name="msg_feedback">Feedback</string>
     <string name="msg_no_img_selection">No post selected yet! Please hold your finger on a photo to start selecting!</string>
     <string name="msg_collage_created">Collage successfully created and added to favorites!</string>
+    <string name="msg_logout">Log out</string>
+    <string name="msg_search_goals">Search goals</string>
+    <string name="msg_view_goals">View your saved goals</string>
+    <string name="msg_view_added_goals">View your added goals</string>
+    <string name="msg_add_goals">Add new goal</string>
+    <string name="msg_images_feed">Images feed</string>
 </resources>

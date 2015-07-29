@@ -17,8 +17,8 @@
 
     <color name="semitransparent_white">#2BFFFFFF</color>
 
-    <color name="primary">#03a9f4</color>
-    <color name="primary_dark">#0288d1</color>
+    <color name="primary">#34495e</color>
+    <color name="primary_dark">#23313f</color>
     <color name="accent">#40c4ff</color>
 
 
