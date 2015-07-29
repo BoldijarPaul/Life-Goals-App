@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+    <corners android:radius="9dp" />
+    <solid android:color="@color/color_primary" />
+
+</shape><!-- From: file:/C:/Users/Browsing/AndroidStudioProjects/LifeGoalsApp/app/src/main/res/drawable/drawable_button_normal.xml -->
