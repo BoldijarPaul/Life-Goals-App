@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:title=""
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:background="@color/primary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_margin="5dp"
+                android:layout_gravity="center|start"
+                android:clickable="true"
+                android:id="@+id/activity_home_toolbar_home"
+                android:background="@drawable/transparent_selector"
+                android:layout_height="42dp"
+                android:layout_width="42dp"
+                android:src="@drawable/ic_menu"
+                android:padding="10dp" />
+
+             
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:background="@color/primary"
+        app:pstsTabBackground="@drawable/drawable_tab_first"
+        app:pstsShouldExpand="true"
+        app:pstsIndicatorHeight="3dp"
+        app:pstsUnderlineHeight="0dp"
+        app:pstsIndicatorColor="@android:color/white"
+        android:textColor="@android:color/white"
+        android:id="@+id/activity_home_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dip" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_home_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

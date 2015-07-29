@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/primary_dark">
+
+
+    <ImageView
+        android:id="@+id/activity_home_toolbar_home"
+        android:background="@drawable/transparent_selector"
+        android:layout_height="match_parent"
+        android:layout_width="20dp"
+        android:src="@drawable/ic_menu"
+        android:padding="6dp" />
+
+    <com.andexert.library.RippleView
+        android:id="@+id/item_action_bar_ripple"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        rv_centered="true"
+        rv_alpha="255"
+        rv_color="@android:color/white">
+
+        <ImageView
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_menu"
+            android:layout_gravity="center_vertical" />
+    </com.andexert.library.RippleView>
+
+
+</LinearLayout>

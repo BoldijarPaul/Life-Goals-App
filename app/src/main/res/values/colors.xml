@@ -30,4 +30,8 @@
 
     <color name="holo_blue_light">#33b5e5</color>
 
+    <!-- feed-->
+    <color name="semitrasparent_black">#4B000000</color>
+
+
 </resources>

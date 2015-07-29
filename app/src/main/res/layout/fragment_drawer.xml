@@ -1,0 +1,124 @@
+<ScrollView
+    android:id="@+id/fragment_drawer_root"
+    android:layout_gravity="start"
+    android:background="@color/drawer_background"
+    android:layout_width="240dp"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/fragment_drawer_rate"
+            android:clickable="true"
+            android:background="@drawable/drawer_selector"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_rate" />
+
+            <TextView
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_rate_app" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_drawer_share"
+            android:clickable="true"
+            android:background="@drawable/drawer_selector"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_share" />
+
+            <TextView
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_share_app" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fragment_drawer_feedback"
+            android:clickable="true"
+            android:background="@drawable/drawer_selector"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_mail" />
+
+            <TextView
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_send_feedback" />
+        </LinearLayout>
+
+
+        <TextView
+            android:textSize="13sp"
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/msg_settings" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.gc.materialdesign.views.CheckBox
+                android:layout_gravity="center_vertical"
+                android:id="@+id/fragment_drawer_enable_notification_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1E88E5"
+                materialdesign:check="true" />
+
+            <TextView
+                android:id="@+id/fragment_drawer_enable_notification_text"
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_enable_not" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

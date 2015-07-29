@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:padding="6dp"
-            android:src="@drawable/ic_share" />
+            android:src="@drawable/ic_share_main_app" />
 
         <TextView
             android:layout_width="wrap_content"

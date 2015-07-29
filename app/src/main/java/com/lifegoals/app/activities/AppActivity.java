@@ -27,7 +27,7 @@ public abstract class AppActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		getActionBar().setIcon(R.drawable.ic_menu);
+		getActionBar().setIcon(R.drawable.ic_menu_main_app);
 		getActionBar().setDisplayShowTitleEnabled(false);
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setDisplayShowCustomEnabled(true);
