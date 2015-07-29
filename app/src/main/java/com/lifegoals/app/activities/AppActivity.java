@@ -58,7 +58,7 @@ public abstract class AppActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				changeActivity(HomeActivity.class);
+				changeActivity(HomeLoginActivity.class);
 			}
 		});
 		mViewSavedGoals.setOnClickListener(new OnClickListener() {
@@ -107,7 +107,7 @@ public abstract class AppActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		if (isTaskRoot()) {
-			Intent intent = new Intent(this, HomeActivity.class);
+			Intent intent = new Intent(this, HomeLoginActivity.class);
 			startActivity(intent);
 			finish();
 			return;

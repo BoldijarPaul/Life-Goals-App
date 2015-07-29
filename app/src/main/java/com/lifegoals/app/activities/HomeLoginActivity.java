@@ -17,7 +17,7 @@ import com.lifegoals.app.helper.CryptHelper;
 import com.lifegoals.app.helper.AsyncTaskHelper.AsyncMethods;
 import com.lifegoals.app.helper.UIHelper;
 
-public class HomeActivity extends Activity {
+public class HomeLoginActivity extends Activity {
 
 	private EditText mUsername, mPassword;
 	private View mButton, mInputLayout, mProgressBar, mRegister;
@@ -26,7 +26,7 @@ public class HomeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		AppContext.setRoot("http://app-leaderboards.rhcloud.com/api/");
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.activity_login_home);
 		loadViews();
 
 	}
@@ -83,12 +83,12 @@ public class HomeActivity extends Activity {
 				mProgressBar.setVisibility(View.GONE);
 				if (value == null) {
 					UIHelper.showCrouton("Error trying to login!",
-							HomeActivity.this);
+							HomeLoginActivity.this);
 					return;
 				}
 				if (!value.isSuccess()) {
 					UIHelper.showCrouton("Invalid username or password!",
-							HomeActivity.this);
+							HomeLoginActivity.this);
 					return;
 				}
 
@@ -96,7 +96,7 @@ public class HomeActivity extends Activity {
 				AppContext.getContext().setToken(value.getToken().getKey());
 
 				/* start the next activity */
-				Intent intent = new Intent(HomeActivity.this,
+				Intent intent = new Intent(HomeLoginActivity.this,
 						YourSavedGoalsActivity.class);
 				intent.putExtra("user", value.getUser());
 				startActivity(intent);

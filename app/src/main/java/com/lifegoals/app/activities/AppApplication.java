@@ -22,7 +22,7 @@ public class AppApplication extends Application implements
 		if (code == 401) {
 			/* not authorized */
 			showToast("Your session expired! Please login again!");
-			Intent loginIntent = new Intent(this, HomeActivity.class);
+			Intent loginIntent = new Intent(this, HomeLoginActivity.class);
 			loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 					| Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			startActivity(loginIntent);

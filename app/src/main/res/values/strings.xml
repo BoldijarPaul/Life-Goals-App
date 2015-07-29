@@ -11,4 +11,27 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_your_added_goals">YourAddedGoals</string>
 
+    <!-- facebook-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_add_to_fav">Add to favorites!</string>
+    <string name="msg_share">Share</string>
+    <string name="msg_wait_image_load">Wait for the image to load first!</string>
+    <string name="msg_added_to_fav">Added to favorites!</string>
+    <string name="msg_shared">Shared successfully!</string>
+    <string name="msg_share_error">Error while trying to share the bitmap!</string>
+    <string name="msg_not_add_fav">Error! Not added to favorites!</string>
+    <string name="msg_remove_fav">Remove from favorites!</string>
+    <string name="msg_removed_fav">Removed from favorites!</string>
+    <string name="msg_save_picture">Save picture!</string>
+    <string name="msg_bitmap_not_saved">The picture was not saved because of an error!</string>
+    <string name="msg_picture_saved">Picture saved in the folder \'@1\' !</string>
+    <string name="msg_second">second</string>
+    <string name="msg_minute">minute</string>
+    <string name="msg_hour">hour</string>
+    <string name="msg_day">day</string>
+    <string name="msg_seconds">seconds</string>
+    <string name="msg_minutes">minutes</string>
+    <string name="msg_hours">hours</string>
+    <string name="msg_days">days</string>
+    <string name="msg_ago">ago</string>
 </resources>
