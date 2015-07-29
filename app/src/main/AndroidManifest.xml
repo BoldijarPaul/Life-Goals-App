@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lifegoals.app"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="21" />
@@ -13,13 +13,13 @@
     <application
         android:name=".activities.AppApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher_icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activities.HomeLoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppThemeNoActionBar" >
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,29 +28,26 @@
         </activity>
         <activity
             android:name=".activities.AddGoalActivity"
-            android:label="@string/title_activity_add_goal" >
-        </activity>
+            android:label="@string/title_activity_add_goal"></activity>
+        <activity
+            android:name=".feed.activities.HomeActivity"
+            android:theme="@style/AppThemeFeed"></activity>
         <activity
             android:name=".activities.YourSavedGoalsActivity"
-            android:label="@string/title_activity_your_goals" >
-        </activity>
+            android:label="@string/title_activity_your_goals"></activity>
         <activity
             android:name=".activities.YourSavedGoalInfoActivity"
-            android:label="@string/title_activity_your_goal_info" >
-        </activity>
+            android:label="@string/title_activity_your_goal_info"></activity>
         <activity
             android:name=".activities.AllGoalsActivity"
-            android:label="@string/title_activity_all_goals" >
-        </activity>
+            android:label="@string/title_activity_all_goals"></activity>
         <activity
             android:name=".activities.RegisterActivity"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppThemeNoActionBar" >
-        </activity>
+            android:theme="@style/AppThemeNoActionBar"></activity>
         <activity
             android:name="com.lifegoals.app.activities.YourAddedGoalsActivity"
-            android:label="@string/title_activity_your_added_goals" >
-        </activity>
+            android:label="@string/title_activity_your_added_goals"></activity>
     </application>
 
 </manifest>
