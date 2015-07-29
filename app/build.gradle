@@ -23,4 +23,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile files('libs/lifegoals-client.jar')
+
 }
